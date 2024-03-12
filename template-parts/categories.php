@@ -1,0 +1,1 @@
+<div class="w12-4"><a href="<? esc_url( get_permalink()); ?>" rel="bookmark"><span class="mask"></span><span class="w12-12 rectbgimg cover menuimage" style="background-image:url(<?php rfhsd_post_thumbnail(); ?>);"></span><span class="menutitle"><? wp_kses_post( get_the_title() ); ?></span></a></div>
