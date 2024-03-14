@@ -20,7 +20,7 @@ $fields = get_fields();
 			</div>
 			<div id="entry264" class="story imgcount" data-imgcount="">
 				
-				<div class="w12-6 full51">
+				<div class="w12-12">
 					<h1 class="title"><?php the_title();?></h1>
 					<?php if( !empty( $fields['location'] ) ):?>
 						<h3 class="location"><?= $fields['location'];?></h3>
@@ -28,36 +28,14 @@ $fields = get_fields();
 					<?php if( !empty( $fields['subtitle'] ) ):?>
 						<h2 class="subtitle"><?= $fields['subtitle'];?></h2>
 					<?php endif;?>
-					<?php if( $fields['copy_rows'] ):
-						$copy_rows = $fields['copy_rows'];
-						foreach( $copy_rows as $copy_row ):
-							$copy = $copy_row['copy'];
-					?>
-					<div id="body264" class="storyp">
-						<?= $copy; ?>
-					</div>
-					<?php endforeach; endif;?>
+					
+					
+					<?php get_template_part('modules');?>
+					
+					
+
 				</div>								
-								
-				<?php if( !empty( $fields['image_gallery'] ) ):
-					$images = $fields['image_gallery'];
-				?>	
-				<div class="w12-6 full51">
-					<?php $count = count($images); $i = 1; foreach( $images as $image ):;
-						if( !empty( $image ) ) {
-							$imgID = $image['ID'];
-							$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
-							$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
-							echo '<div class="w12-12">';
-							echo $img;
-							if( $count == $i && !empty( $fields['gallery_citation'] ) ) {
-								echo '<div class="caption">' . $fields['gallery_citation'] . '</div>';
-							}
-							echo '</div>';
-						}
-					$i++; endforeach;?>
-				</div>
-				<?php endif;?>
+
 				<div class="clr"></div>
 			</div>
 			<div class="clr mainbox_bottom"></div>

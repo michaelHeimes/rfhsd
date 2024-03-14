@@ -141,11 +141,14 @@ add_action( 'widgets_init', 'rfhsd_widgets_init' );
 function rfhsd_scripts() {
 	wp_enqueue_style("root",get_stylesheet_directory_uri(). '/'. 'root.min.css');
 	wp_enqueue_style("slabgrid",get_stylesheet_directory_uri(). '/'. 'slabgrid.min.css');
+	wp_enqueue_style("venobox",get_stylesheet_directory_uri(). '/'. 'venobox.min.css');	
 	wp_enqueue_style( 'rfhsd-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'rfhsd-style', 'rtl', 'replace' );
 	
 	wp_enqueue_script( 'rfhsd-jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js');
 	wp_enqueue_script( 'rfhsd-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'venobox', get_template_directory_uri() . '/js/venobox.min.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'slab', get_template_directory_uri() . '/js/slab.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -199,13 +202,6 @@ function post_remove ()
 }
 add_action('admin_menu', 'post_remove');
 
-
-function ti_custom_javascript() {
-?>
-<script src="<? echo get_stylesheet_directory_uri(); ?>/js/slab.js"></script>
-<?php
-}
-add_action('wp_head', 'ti_custom_javascript');
 
 function slab_menu_items($postid){
 	  global $wpdb;

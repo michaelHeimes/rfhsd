@@ -1,6 +1,21 @@
 $(document).ready(function(){
 	headerText();
 	$('.onload-fadein').animate({opacity:1},333);
+	
+	if( $('.venobox-img').length ) {
+		new VenoBox({
+			selector: '.venobox-img',
+			numeration: true,
+			infinigall: true,
+			fitView: true,
+			share: false,
+			overlayColor: 'rgba(255,255,255,0.85)',
+			toolsColor: '#4A5B69',
+			spinner: 'plane',
+			spinColor: '#BAC20E'
+		});
+	}
+	
 });
 
 $(window).scroll(function() {
